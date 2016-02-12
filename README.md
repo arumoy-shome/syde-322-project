@@ -1,5 +1,7 @@
 # Tutorify
 
+[![Build Status](https://travis-ci.org/arumoy-shome/tutorify.svg?branch=master)](https://travis-ci.org/arumoy-shome/tutorify)
+
 This application is part of the SYDE 322 Software Design course
 at the University of Waterloo.
 
