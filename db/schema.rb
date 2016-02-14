@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214052116) do
+ActiveRecord::Schema.define(version: 20160214054814) do
+
+  create_table "tutors", force: :cascade do |t|
+    t.integer "user_id"
+  end
+
+  add_index "tutors", ["user_id"], name: "index_tutors_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
