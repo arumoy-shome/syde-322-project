@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214062202) do
+ActiveRecord::Schema.define(version: 20160214065154) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.float    "rating"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20160214062202) do
   end
 
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "subjects_tutors", id: false, force: :cascade do |t|
+    t.integer "subject_id"
+    t.integer "tutor_id"
+  end
+
+  add_index "subjects_tutors", ["subject_id"], name: "index_subjects_tutors_on_subject_id"
+  add_index "subjects_tutors", ["tutor_id"], name: "index_subjects_tutors_on_tutor_id"
 
   create_table "tutors", force: :cascade do |t|
     t.integer "user_id"
