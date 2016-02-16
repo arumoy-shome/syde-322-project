@@ -23,6 +23,7 @@ at the University of Waterloo.
     - to have a uniform development environment and avoid the
     "This works on my machine but breaks on yours" scenario we are using Otto.
     - to know more about Otto, go [here](https://www.ottoproject.io/)
+    - you can use this [video](https://youtu.be/6b5IRVz76do) tutorial on how to install Otto or follow the below steps
     - install Otto by visiting
       [this](https://www.ottoproject.io/docs/install/index.html) page and
       following the instructions there
@@ -31,6 +32,7 @@ at the University of Waterloo.
     - install the latest version of vagrant from
       [here](https://www.vagrantup.com/downloads.html)
     - install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads)
+5. Setup Otto
     - `cd tutorify` to go into the project directory and run the following:
         1. `otto compile`
         2. `otto develop`
@@ -40,15 +42,15 @@ at the University of Waterloo.
     - **Note**: Run all your generations, server, migrations, tests, etc from
       ***within*** the dev environment! You can still code from your local
       machine.
-5. Bundle all the gems
+6. Bundle all the gems
     - `cd` in to the project directory and `otto dev ssh`
     - `gem install bundler`
     - `bundle install`
-6. Create the database tables
+7. Create the database tables
     - `bundle exec rake db:setup`
-7. Run all tests
+8. Run all tests
     - `rspec spec` to run the entire test suite
-8. Start the server
+9. Start the server
     - since we are spinning up the server from a VM, we need to bind the server
       to `0.0.0.0`. More on this
       [here](https://www.ottoproject.io/docs/apps/ruby/dev.html)
