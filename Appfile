@@ -1,0 +1,15 @@
+application {
+  name = "tutorify"
+  type = "ruby"
+}
+
+project {
+  name = "tutorify"
+  infrastructure = "tutorify"
+}
+
+
+ infrastructure "tutorify" {
+  type = "aws"
+  flavor = "simple"
+}
