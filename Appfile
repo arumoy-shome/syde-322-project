@@ -1,0 +1,22 @@
+application {
+  name = "tutorify"
+  type = "ruby"
+
+  dependency {
+    source = "github.com/withassociates/otto-mysql"
+  }
+}
+
+project {
+  name = "tutorify"
+  infrastructure = "tutorify"
+}
+
+infrastructure "tutorify" {
+  type = "aws"
+    flavor = "simple"
+}
+
+customization {
+    ruby_version = "2.3.0"
+}
