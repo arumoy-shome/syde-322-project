@@ -35,7 +35,7 @@ at the University of Waterloo.
 5. Setup Otto
     - `cd tutorify` to go into the project directory and run the following:
         1. `otto compile`
-        2. `otto develop`
+        2. `otto dev`
     - this will setup a Linux environment for development (this step will take a
       while so go grab a cup of :coffee:)
     - once done, ssh into your dev environment with `otto dev ssh`
