@@ -8,8 +8,7 @@ feature "User visits sign up page" do
   end
 
   scenario "signs up sucessfully" do
-    user = build(:user, name: "Another Dummy",
-                email: "another@email.com", password_digest: "secret00")
+    user = build(:user)
 
     visit new_user_path
     fill_in("Name", with: user.name)
@@ -17,6 +16,6 @@ feature "User visits sign up page" do
     fill_in("Password", with: user.password_digest)
     click_button "Sign up"
 
-    expect(page).to have_css("p", text: "Signed in as: Another Dummy")
+    expect(page).to have_css("p", text: "Signed in as: Dummy User")
   end
 end

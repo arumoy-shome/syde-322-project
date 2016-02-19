@@ -8,7 +8,7 @@ feature "User visits sign in page" do
   end
 
   scenario "signs in successfully" do
-    user = build(:user)
+    user = create(:user)
 
     visit new_session_path
     fill_in("Email", with: user.email)
