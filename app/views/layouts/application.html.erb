@@ -15,8 +15,8 @@
 
     <%= link_to 'Sign out', session_path, method: :delete %>
   <% else %>
-    <%= link_to 'Sign in', new_session_path %>
-    <%= link_to 'Sign up', new_user_path %>
+    <%= link_to 'Sign in', new_session_path, :class =>'globalButtons' %>
+    <%= link_to 'Sign up', new_user_path, :class =>'globalButtons' %>
   <% end %>
 
 <%= yield %>
