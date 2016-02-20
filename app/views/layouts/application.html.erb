@@ -9,14 +9,15 @@
 <body>
 
   <% if signed_in? %>
-    <p>
-      Signed in as: <%= current_user.name %>
-    </p>
-
-    <%= link_to 'Sign out', session_path, method: :delete %>
+    <div>
+      <p>Signed in as: <%= current_user.name %></p>
+      <%= link_to 'Sign out', session_path, method: :delete %>
+    </div>
   <% else %>
-    <%= link_to 'Sign in', new_session_path %>
-    <%= link_to 'Sign up', new_user_path %>
+    <div>
+      <%= link_to 'Sign in', new_session_path %>
+      <%= link_to 'Sign up', new_user_path %>
+    </div>
   <% end %>
 
 <%= yield %>
