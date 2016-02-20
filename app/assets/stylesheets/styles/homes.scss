@@ -1,21 +1,21 @@
-h1{
+h1 {
 	font: 55px/50px "Lucida Grande", Arial, Verdana, sans-serif;
 }
 
-.landing_image{
-	width: 100%;
+.landing-image {
+	border-radius: 8px;
 	height: auto;
 	opacity: 0.7;
-	border-radius: 8px;
+	width: 100%;
 }
 
-.container{
+.container {
 	position: relative;
 	width: 100%;
 }
 
-.topright{
+.topright {
 	position: absolute;
-	top: 10px;
 	right: 40px;
+	top: 10px;
 }
