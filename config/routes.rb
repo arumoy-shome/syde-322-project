@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'homes#show', via: :get
+  root to: 'homes#index', via: :get
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :show, :create]
   # The priority is based upon order of creation: first created -> highest priority.

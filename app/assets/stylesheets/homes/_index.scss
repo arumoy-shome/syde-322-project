@@ -1,0 +1,8 @@
+.sample-banner {
+  height: 45%;
+  width: 100%;
+
+  @media(max-width: $screen-sm-max) {
+    height: 25%;
+  }
+}
