@@ -16,7 +16,7 @@ feature "User visits sign up page" do
     fill_in("Password", with: user.password_digest)
     click_button "Sign up"
 
-    expect(page).to have_css("p", text: "Signed in as: Dummy User")
+    expect(page).to have_css("p", text: "Welcome Dummy User!")
   end
 
   scenario "signs up unsuccessfully" do

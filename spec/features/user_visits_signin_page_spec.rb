@@ -10,12 +10,20 @@ feature "User visits sign in page" do
   scenario "signs in successfully" do
     user = create(:user)
 
+    # user registers
+    visit new_user_path
+    fill_in("Name", with: user.name)
+    fill_in("Email", with: user.email)
+    fill_in("Password", with: user.password_digest)
+    click_button "Sign up"
+
+    # user attempts login
     visit new_session_path
     fill_in("Email", with: user.email)
     fill_in("Password", with: user.password_digest)
     click_button "Sign in"
 
-    expect(page).to have_css("p", text: "Signed in as: Dummy User")
+    expect(page).to have_css("p", text: "Welcome Dummy User!")
   end
 
   scenario "signs in unsuccessfully" do
