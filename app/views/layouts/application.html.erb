@@ -7,20 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <% if signed_in? %>
-    <div>
-      <p>Signed in as: <%= current_user.name %></p>
-      <%= link_to 'Sign out', session_path, method: :delete %>
+  <div class="container">
+    <div class="page-header">
+      <h1>Welcome to Tutorify</h1>
     </div>
-  <% else %>
-    <div>
-      <%= link_to 'Sign in', new_session_path %>
-      <%= link_to 'Sign up', new_user_path %>
+
+    <div class="row">
+      <% if signed_in? %>
+        <div class="pull-right">
+          <p>Welcome <%= current_user.name %>!</p>
+          <%= link_to 'Sign out', session_path, method: :delete %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 
-<%= yield %>
+    <%= yield %>
 
+  </div>
 </body>
 </html>
