@@ -14,3 +14,26 @@ feature "User visits homepage" do
     expect(page).to have_css('h1', text: 'Register')
   end
 end
+
+feature "User signs in" do
+  scenario "successfully" do
+    user = create(:user)
+
+    visit root_path
+    fill_in("Email", with: user.email)
+    fill_in("Password", with: user.password_digest)
+    click_button "Sign in"
+
+    expect(page).to have_css("p", text: "Welcome Dummy User!")
+  end
+
+  scenario "unsuccessfully" do
+    user = create(:user)
+
+    visit root_path
+    fill_in("Email", with: user.email)
+    click_button "Sign in"
+
+    expect(page).to have_css("h3", text: "Sign in")
+  end
+end
