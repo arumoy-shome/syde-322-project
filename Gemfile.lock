@@ -41,7 +41,6 @@ GEM
     autoprefixer-rails (6.3.3)
       execjs
       json
-    bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.6)
@@ -97,12 +96,6 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    monban (0.2.1)
-      bcrypt
-      rails
-      warden
-    monban-generators (0.0.4)
-      monban (>= 0.0.12)
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -185,8 +178,6 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (1.2.6)
-      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -207,8 +198,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   meta_request
-  monban
-  monban-generators
   rails (= 4.2.5.1)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
