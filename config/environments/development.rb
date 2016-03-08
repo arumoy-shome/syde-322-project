@@ -40,5 +40,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # whitelist otto ip address
-  config.web_console.whitelisted_ips = '100.123.40.1'
+  config.web_console.whitelisted_ips = "100.123.40.1"
 end

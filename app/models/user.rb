@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   def self.create_from_hash!(hash)
-    create(name: hash['info']['name'], email: hash['info']['email'],
-         image_url: hash['info']['image'])
+    create(name: hash["info"]["name"], email: hash["info"]["email"],
+           image_url: hash["info"]["image"])
   end
 end
