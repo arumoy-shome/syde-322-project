@@ -5,18 +5,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = authenticate_session(session_params)
-
-    if sign_in(user)
-      redirect_to user_path(current_user)
-    else
-      redirect_to root_path
-    end
+    render text: request.env['omniauth.auth'].inspect
   end
 
   def destroy
-    sign_out
-    redirect_to root_path
   end
 
   private
