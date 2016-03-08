@@ -10,7 +10,12 @@
   <div class="container">
     <div class="page-header">
       <h1>Welcome to Tutorify</h1>
-    </div>
+
+      <% if signed_in? %>
+        <%= link_to("Sign Out", session_path, method: :delete, class:
+                    'pull-right') %>
+      <% end %>
+  </div>
 
     <%= yield %>
 

@@ -1,5 +1,8 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
 <%= image_tag(avatar_url(current_user), width: "50", height: "50") %>
-<p><%= current_user.name %>
-</p>
+<p><%= current_user.name %></p>
 
 
