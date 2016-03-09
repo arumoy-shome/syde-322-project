@@ -10,16 +10,12 @@
   <div class="container">
     <div class="page-header">
       <h1>Welcome to Tutorify</h1>
-    </div>
 
-    <div class="row">
       <% if signed_in? %>
-        <div class="pull-right">
-          <p>Welcome <%= current_user.name %>!</p>
-          <%= link_to 'Sign out', session_path, method: :delete %>
-        </div>
+        <%= link_to("Sign Out", session_path, method: :delete, class:
+                    'pull-right') %>
       <% end %>
-    </div>
+  </div>
 
     <%= yield %>
 
