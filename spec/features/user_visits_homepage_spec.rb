@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "User visits homepage" do
   scenario "successfully" do
