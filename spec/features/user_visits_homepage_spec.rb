@@ -4,7 +4,7 @@ feature "User visits homepage" do
   scenario "successfully" do
     visit root_path
 
-    expect(page).to have_css("h1", text: "Welcome to Tutorify")
+    expect(page).to have_css("h3", text: "Sign In")
   end
 
   scenario "successfully redirects to registration page" do
@@ -24,7 +24,7 @@ feature "User signs in" do
     fill_in("Password", with: user.password_digest)
     click_button "Sign in"
 
-    expect(page).to have_css("p", text: "Welcome Dummy User!")
+    expect(page).to have_css("p", text: "Dummy User")
   end
 
   scenario "unsuccessfully" do
@@ -34,6 +34,6 @@ feature "User signs in" do
     fill_in("Email", with: user.email)
     click_button "Sign in"
 
-    expect(page).to have_css("h3", text: "Sign in")
+    expect(page).to have_css("h3", text: "Sign In")
   end
 end
