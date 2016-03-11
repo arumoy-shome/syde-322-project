@@ -13,6 +13,7 @@ gem "sdoc", '~> 0.4.0', group: :doc
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
+gem "omniauth-twitter"
 gem "google-api-client", "< 0.9", :require => "google/api_client"
 
 group :development, :test do
