@@ -1,8 +1,13 @@
+require "net/http"
+require "json"
+
 class Authorization < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :user_id, :uid, :provider
-  validates_uniqueness_of :uid, scope: :provider
+  validates_presence_of :user_id, :uid, :provider, :token, :refresh_token,
+    :expires_at
+  validates_uniqueness_of :uid, :token, :refresh_token, :expires_at,
+    scope: :provider
 
   def self.find_from_hash(hash)
     find_by_provider_and_uid(hash[:provider], hash[:uid])
@@ -20,8 +25,7 @@ class Authorization < ActiveRecord::Base
   end
 
   def request_token_from_google
-    url = URI("https://accounts.google.com/o/oauth2/token")
-    Net::HTTP.post_form(url, self.google_to_params)
+    Net::HTTP.post_form(url, google_to_params)
   end
 
   def refresh!
@@ -41,6 +45,8 @@ class Authorization < ActiveRecord::Base
     refresh! if expired?
     token
   end
+
+  private
 
   def google_to_params
     {
