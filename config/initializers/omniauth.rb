@@ -6,7 +6,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            "email, profile, https://www.googleapis.com/auth/calendar",
            redirect_uri: "http://tutorify.me:3000/auth/google_oauth2/callback",
            skip_jwt: true, provider_ignores_state: true)
-  provider(:twitter, "xixVhwamq1MMr2LKKlTkGFcsA", 
+  provider(:twitter, "xixVhwamq1MMr2LKKlTkGFcsA",
            "Zpd4HG6t1xxYIlpnT5Q6mnxhoLBVyQWSRw8HqBNjKfXJ4taJs3", image_size:
            "normal")
 end
