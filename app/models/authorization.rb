@@ -17,10 +17,10 @@ class Authorization < ActiveRecord::Base
     user ||= User.create_from_hash!(hash)
 
     Authorization.create(user: user, uid: hash[:uid], provider: hash[:provider],
-                        token: hash[:credentials][:token],
-                        refresh_token: hash[:credentials][:refresh_token],
-                        expires_at: Time.at(
-                          hash[:credentials][:expires_at]).to_datetime
+                         token: hash[:credentials][:token],
+                         refresh_token: hash[:credentials][:refresh_token],
+                         expires_at: Time.at(
+                           hash[:credentials][:expires_at]).to_datetime
                         )
   end
 
@@ -33,7 +33,7 @@ class Authorization < ActiveRecord::Base
     data = JSON.parse(response.body)
     update_attributes(
       token: data["access_token"],
-      expires_at: Time.now + (data["expires_at"].to_i).seconds
+      expires_at: Time.now + data["expires_at"].to_i.seconds
     )
   end
 

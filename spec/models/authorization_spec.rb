@@ -6,7 +6,10 @@ describe Authorization, ".find_from_hash" do
       hash = OmniauthHelper.auth_hash
       user = create(:user)
       authorization = create(:authorization, provider: hash[:provider], uid:
-                             hash[:uid], user_id: user.id)
+                             hash[:uid], user_id: user.id, token:
+                             hash[:credentials][:token], refresh_token:
+                             hash[:credentials][:refresh_token],
+                             expires_at: hash[:credentials][:expires_at])
       result = Authorization.find_from_hash(hash)
 
       expect(result).to eq(authorization)

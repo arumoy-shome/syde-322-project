@@ -3,6 +3,11 @@ module OmniauthHelper
     {
       provider: "facebook",
       uid: "1234567",
+      credentials: {
+        token: "abcqwefghiopghvnk",
+        refresh_token: "abcqwef2345ghiopghvnk3456",
+        expires_at: Time.now
+      },
       info: {
         email: "dummy@example.com",
         name: "Dummy Name",
@@ -15,6 +20,11 @@ module OmniauthHelper
     {
       provider: "",
       uid: "1234567",
+      credentials: {
+        token: "abcqwefghiopghvnk",
+        refresh_token: "abcqwef2345ghiopghvnk3456",
+        expires_at: Time.now
+      },
       info: {
         email: "",
         name: "Dummy Name",
