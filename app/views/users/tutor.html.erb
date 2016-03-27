@@ -1,0 +1,14 @@
+<h1>Find a Tutor</h1>
+
+<%= form_tag tutors_path, method: :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil%>
+  </p>
+<% end %>
+
+<ul>
+  <% @tutors.each do |tutor| %>
+    <li><%= tutor.name %></li>
+  <% end %>
+</ul>
