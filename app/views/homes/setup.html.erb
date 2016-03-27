@@ -1,0 +1,13 @@
+<%= form_for :user, url: user_path(current_user) do |form| %>
+  <div class="form-group">
+    <p>Please identify if you are a Student or a Tutor: </p>
+    <%= radio_button_tag(:age, "child") %>
+    <%= label_tag(:age_child, "I am a Tutor") %>
+    <br>
+    <%= radio_button_tag(:age, "adult") %>
+    <%= label_tag(:age_adult, "I am a Student") %>
+  </div>
+  <div class="form-group">
+    <%= form.submit("Submit", class: "btn btn-primary") %>
+  </div>
+<% end %>
