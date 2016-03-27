@@ -2,7 +2,7 @@
   <div class="alert alert-success"><%= flash[:notice] %></div>
 <% end %>
 
-<%= image_tag(avatar_url(current_user), width: "50", height: "50") %>
-<p><%= current_user.name %></p>
+<%= image_tag(avatar_url(@user), width: "50", height: "50") %>
+<p><%= @user.name %></p>
 
-<%= link_to "My Calenders", events_path%>
+<%= link_to "My Calenders", calendar_path %>

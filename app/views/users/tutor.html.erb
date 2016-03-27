@@ -9,6 +9,6 @@
 
 <ul>
   <% @tutors.each do |tutor| %>
-    <li><%= tutor.name %></li>
+    <li><%= link_to tutor.name, user_path(tutor) %></li>
   <% end %>
 </ul>
