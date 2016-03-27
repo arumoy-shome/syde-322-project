@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resource :calendar, only: [:show]
   resource :session, only: [:destroy]
   get "/auth/:provider/callback", to: "sessions#create"
+  get "/tutors", to: "users#tutor"
 end
