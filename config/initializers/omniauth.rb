@@ -5,5 +5,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
            ".apps.googleusercontent.com", "VhbOQPFuYJGIEzZ5dsbGFzD2", scope:
            "email, profile, https://www.googleapis.com/auth/calendar",
            redirect_uri: "http://tutorify.me:3000/auth/google_oauth2/callback",
-           skip_jwt: true)
+           skip_jwt: true, provider_ignores_state: true)
 end
