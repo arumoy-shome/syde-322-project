@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
   def create
     unless @auth = Authorization.find_from_hash(auth_hash)
-      @auth = Authorization.create_from_hash(auth_hash, current_user)
+      @auth = Authorization.create_from_hash(
+        auth_hash, User.find_from_hash(auth_hash)
+      )
     end
 
     self.current_user = @auth.user
