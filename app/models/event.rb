@@ -1,6 +1,3 @@
 class Event < ActiveRecord::Base
-  belongs_to :tutor
-  has_many :user
-
-  validates :tutor_id, presence: true
+  has_and_belongs_to_many :users
 end
