@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327173255) do
+ActiveRecord::Schema.define(version: 20160327195228) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20160327173255) do
   end
 
   create_table "events_users", id: false, force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.integer "user_id",  null: false
+    t.integer "event_id"
+    t.integer "user_id"
   end
 
-  add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
-  add_index "events_users", ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
+  add_index "events_users", ["event_id"], name: "index_events_users_on_event_id"
+  add_index "events_users", ["user_id"], name: "index_events_users_on_user_id"
 
   create_table "feedbacks", force: :cascade do |t|
     t.float    "rating"
@@ -50,30 +50,13 @@ ActiveRecord::Schema.define(version: 20160327173255) do
 
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
 
-  create_table "subjects", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "subjects_tutors", id: false, force: :cascade do |t|
-    t.integer "subject_id"
-    t.integer "tutor_id"
-  end
-
-  add_index "subjects_tutors", ["subject_id"], name: "index_subjects_tutors_on_subject_id"
-  add_index "subjects_tutors", ["tutor_id"], name: "index_subjects_tutors_on_tutor_id"
-
-  create_table "tutors", force: :cascade do |t|
-    t.integer "user_id"
-  end
-
-  add_index "tutors", ["user_id"], name: "index_tutors_on_user_id"
-
   create_table "users", force: :cascade do |t|
     t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
     t.string   "image_url"
+    t.boolean  "is_tutor"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
