@@ -1,4 +1,4 @@
-FactoryGirl.define do 1
+FactoryGirl.define do
   factory :authorization do
     provider "MyString"
     uid "MyString"
