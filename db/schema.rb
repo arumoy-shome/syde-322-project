@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310203651) do
+ActiveRecord::Schema.define(version: 20160327173255) do
 
   create_table "authorizations", force: :cascade do |t|
     t.string   "provider"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 20160310203651) do
     t.string   "refresh_token"
     t.string   "expires_at"
   end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "location"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events_users", id: false, force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "user_id",  null: false
+  end
+
+  add_index "events_users", ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
+  add_index "events_users", ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
 
   create_table "feedbacks", force: :cascade do |t|
     t.float    "rating"
