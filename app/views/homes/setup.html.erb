@@ -1,0 +1,16 @@
+<%= form_for @user do |form| %>
+
+  <div class="form-group">
+    <p>Please identify if you are a Student or a Tutor:</p>
+    <%= radio_button_tag(:is_tutor, true) %>
+    <%= label_tag(:user_tutor, "I am a Tutor") %>
+    <br>
+    <%= radio_button_tag(:is_tutor, false) %>
+    <%= label_tag(:user_student, "I am a Student") %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit("Submit", class: "btn btn-primary") %>
+  </div>
+<% end %>
+
