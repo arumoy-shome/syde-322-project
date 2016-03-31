@@ -2,6 +2,11 @@
   <div class="alert alert-success"><%= flash[:notice] %></div>
 <% end %>
 
+<% if flash[:alert] %>
+  <div class="alert alert-warning"><%= flash[:alert] %></div>
+<% end %>
+
+
 <div class="row">
   <div class="col-md-4">
     <%= image_tag(avatar_url(@user), width: "200", height: "200", class: "img-circle pull-right") %>
@@ -20,6 +25,9 @@
   <% unless @user == current_user %>
     <div class="col-md-4 feedback">
       <%= link_to "Leave a Feedback", new_feedback_path %>
+      <% if @user.is_tutor && current_user.is_tutor != true %>
+        <%= link_to "Book a session", new_event_path %>
+      <% end %>
     </div>
   <% end %>
 </div>
