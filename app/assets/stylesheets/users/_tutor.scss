@@ -1,0 +1,27 @@
+h1 {
+  color: $secondary-text;
+  text-align: center;
+}
+
+.form-group {
+  margin: 25px auto;
+
+  input {
+    margin: 10px auto;
+  }
+}
+
+.tutor-list {
+  text-align: center;
+  list-style: none;
+
+  li {
+    border: solid 1px $accent;
+    margin: 25px auto;
+
+    a {
+      color: $primary-text;
+      font-size: $font-bigger;
+    }
+  }
+}
