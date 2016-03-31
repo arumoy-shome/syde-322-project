@@ -5,14 +5,14 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = Feedback.create(feedback_params)
+    @feedback = Feedback.new(feedback_params)
 
     if @feedback.save
       flash[:notice] = "Successfully added feedback"
       redirect_to user_path(feedback_params[:user_id])
     else
-      flash[:notice] = "Something went wrong :("
-      render :new
+      flash[:alert] = "Something went wrong :("
+      redirect_to user_path(feedback_params[:user_id])
     end
   end
 

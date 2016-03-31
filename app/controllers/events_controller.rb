@@ -1,17 +1,39 @@
 class EventsController < ApplicationController
-  def index
-    client = Google::APIClient.new
-    client.authorization.access_token =
-      current_user.authorizations.find_by_provider( "google_oauth2").fresh_token
+  def new
+    @event = Event.new
+    @tutor = User.find(session[:event_for_id])
+    @student = current_user
+  end
 
-    service = client.discovered_api("calendar", "v3")
+  def show
+    @event = Event.find(params[:id])
+  end
 
-    @result = client.execute(
-      api_method: service.calendar_list.list,
-      parameters: {},
-      headers: {
-        "Content-Type" => "application/json"
-      }
-    )
+  def create
+    @users = [User.find(event_params[:student_id]), User.find(event_params[:tutor_id])]
+    @event_details = {
+      name: event_params[:name],
+      location: event_params[:location],
+      event_date: event_params[:event_date],
+      event_time: event_params[:event_time],
+      users: @users
+    }
+
+    @event = Event.new(@event_details)
+
+    if @event.save
+      flash[:notice] = "Successfully added event"
+      redirect_to user_path(current_user)
+    else
+      flash[:alert] = "Something went wrong :("
+      redirect_to user_path(event_params[:tutor_id])
+    end
+  end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:name, :location, :event_date, :event_time,
+                                  :student_id, :tutor_id)
   end
 end

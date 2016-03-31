@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :feedbacks
   has_many :authorizations
+  has_and_belongs_to_many :events
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, uniqueness: true

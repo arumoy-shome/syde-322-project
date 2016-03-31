@@ -1,0 +1,12 @@
+<h1><%= @event.name %></h1>
+<h3>Location: <%= @event.location %></h3>
+<h3>Date: <%= @event.event_date %></h3>
+<h3>Time: <%= @event.event_time %></h3>
+<h3>
+  Attending:
+  <ul>
+    <% @event.users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
+  </ul>
+</h3>
