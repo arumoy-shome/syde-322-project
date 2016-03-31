@@ -1,14 +1,18 @@
 <h1>Find a Tutor</h1>
 
 <%= form_tag tutors_path, method: :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", name: nil%>
-  </p>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: "form-control" %>
+    <%= submit_tag "Search", name: nil, class: "btn btn-primary form-control" %>
+  </div>
 <% end %>
 
-<ul>
-  <% @tutors.each do |tutor| %>
-    <li><%= link_to tutor.name, user_path(tutor) %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <ul class="tutor-list">
+      <% @tutors.each do |tutor| %>
+        <li><%= link_to tutor.name, user_path(tutor) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

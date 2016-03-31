@@ -5,5 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    session[:feedback_for_id] = @user.id
+    session[:calendar_for_id] = @user.id
   end
 end

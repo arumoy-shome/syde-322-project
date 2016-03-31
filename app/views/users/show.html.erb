@@ -2,7 +2,47 @@
   <div class="alert alert-success"><%= flash[:notice] %></div>
 <% end %>
 
-<%= image_tag(avatar_url(@user), width: "50", height: "50") %>
-<p><%= @user.name %></p>
+<div class="row">
+  <div class="col-md-4">
+    <%= image_tag(avatar_url(@user), width: "200", height: "200", class: "img-circle pull-right") %>
+  </div>
+  <div class="col-md-4 user-info">
+    <p class="user-name"><%= @user.name %></p>
+    <p class="user-status">
+      <% if @user.is_tutor %>
+        <p>Tutor</p>
+      <% else %>
+        <p>Student</p>
+      <% end %>
+    </p>
+  </div>
 
-<%= link_to "My Calenders", calendar_path %>
+  <% unless @user == current_user %>
+    <div class="col-md-4 feedback">
+      <%= link_to "Leave a Feedback", new_feedback_path %>
+    </div>
+  <% end %>
+</div>
+
+<% if @user.feedbacks.present? %>
+  <div class="row feedback-list">
+    <% @user.feedbacks.limit(5).sort_by(&:created_at).reverse!.each do |feedback| %>
+      <div class="row feedback-row">
+        <div class="col-md-2">
+          <p>Rating: <%= feedback.rating %></p>
+        </div>
+
+        <div class="col-md-8">
+          <p>Comment: <%= feedback.comment %></p>
+        </div>
+
+        <div class="col-md-2">
+          <p>Created At: <%= feedback.created_at.to_formatted_s(:short) %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="text-center">No Feedbacks yet!</p>
+<% end %>
+

@@ -1,8 +1,9 @@
-.sample-banner {
-  height: 45%;
-  width: 100%;
-
-  @media(max-width: $screen-sm-max) {
-    height: 25%;
+.jumbotron {
+  text-align: center;
+  background-color: $primary;
+  color: $primary-text;
+  a {
+    color: $accent;
+    font-size: $font-big;
   }
 }

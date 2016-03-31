@@ -11,6 +11,46 @@
  * file per style scope.
  */
 
+// Color Scheme
+$dark-primary: #0097A7;
+$primary: #00BCD4;
+$light-primary: #B2EBF2;
+$text: #FFFFFF;
+$accent: #FFC107;
+$primary-text: #212121;
+$secondary-text: #727272;
+$divider: #B6B6B6;
+
+// default font size
+$font-huge: 24px;
+$font-bigger: 18px;
+$font-big: 16px;
+$font-primary: 14px;
+$font-tiny: 12px;
+
+// set some defaults
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4, h5, h6, p, a {
+  font-size: 14px;
+}
+
+//set some global classes
+.hidden {
+  display: hidden;
+}
+
+//imports
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "users";
