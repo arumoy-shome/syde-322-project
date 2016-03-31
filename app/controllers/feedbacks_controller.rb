@@ -1,7 +1,7 @@
 class FeedbacksController < ApplicationController
   def new
     @feedback = Feedback.new
-    @feedback_for_id = session[:feedback_for_id]
+    @user = User.find(session[:feedback_for_id])
   end
 
   def create

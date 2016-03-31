@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Tutorify</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -28,11 +28,13 @@
         <% if signed_in? %>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+              <% unless current_user.is_tutor %>
+                <li>
+                  <%= link_to "Find a Tutor", tutors_path %>
+                </li>
+              <% end %>
               <li>
-                <%= link_to "Find a Tutor", tutors_path %>
-              </li>
-              <li>
-                <%= link_to "My Calenders", calendar_path %>
+                <%= link_to "Calendar", calendar_path %>
               </li>
               <li>
                 <%= link_to("Sign Out", session_path, method: :delete, class: 'pull-right') %>
