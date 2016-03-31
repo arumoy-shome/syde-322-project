@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     self.current_user = @auth.user
 
     flash[:notice] = "Successfully Signed In As #{current_user.name}"
-    redirect_to user_path(current_user)
+    redirect_to edit_user_path(current_user)
   end
 
   def destroy

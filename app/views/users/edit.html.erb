@@ -1,0 +1,23 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+
+<h1>Are you a Student or a Tutor?</h1>
+
+<%= form_for @user do |f| %>
+  <div class="form-group">
+    <%= radio_button_tag :is_tutor, "false", class: "form-control" %>
+    <%= label_tag(:is_tutor, "I am a Student") %>
+  </div>
+
+  <div class="form-group">
+    <%= radio_button_tag :is_tutor, "true", class: "form-control" %>
+    <%= label_tag(:is_tutor, "I am a Tutor") %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>

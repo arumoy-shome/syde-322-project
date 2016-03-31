@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "homes#index", via: :get
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
   resources :events, only: [:new, :create, :show]
   resource :calendar, only: [:show]
   resource :session, only: [:destroy]
